@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerSolutions | Sustainable Energy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --neon-green: #39FF14; --dark-bg: #0f111a; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); font-family: 'Inter', sans-serif; color: #ffffff; }
+        .nav-link:hover { color: var(--neon-green); }
+        .btn-primary { background: linear-gradient(135deg, #4f46e5, #7c3aed); transition: all 0.2s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4); }
+        .profile-ring { border: 2px solid var(--neon-green); box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); }
+        
+        .contact-icon {
+            font-size: 1.8rem; transition: all 0.3s ease; color: rgba(255, 255, 255, 0.6);
+            display: flex; align-items: center; justify-content: center;
+            width: 64px; height: 64px; background: rgba(255, 255, 255, 0.05); border-radius: 16px; cursor: pointer;
+        }
+        .contact-icon:hover { color: var(--neon-green); background: rgba(57, 255, 20, 0.1); transform: translateY(-5px); }
+
+        #emailModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: #1a1c2e; border: 1px solid #333; border-radius: 24px; padding: 40px; text-align: center; max-width: 500px; width: 100%; box-shadow: 0 0 50px rgba(79, 70, 229, 0.2); }
+    </style>
+</head>
+<body>
+
+    <!-- Email Modal -->
+    <div id="emailModal">
+        <div class="modal-content">
+            <h2 class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-4">Official Email</h2>
+            <p id="emailText" class="text-2xl md:text-3xl font-bold text-white mb-8 break-all">sureshv333@gmail.com</p>
+            <div class="flex flex-col gap-4">
+                <button onclick="copyEmail()" class="btn-primary py-4 rounded-xl font-bold uppercase tracking-widest text-xs">
+                    <i class="fa-regular fa-copy mr-2"></i> Copy Email
+                </button>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-white transition text-sm">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="max-w-6xl mx-auto px-8 py-10 flex justify-between items-center">
+        <div class="text-xl font-extrabold tracking-tight text-indigo-500 uppercase">PowerSolutions</div>
+        <div class="flex space-x-10 text-sm font-medium text-gray-400 uppercase tracking-widest">
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="#contact-section" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="max-w-6xl mx-auto px-8 pt-20 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-12">
+            <div class="space-y-6">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                    Powering Your Future, <br><span class="text-white">Sustainably.</span>
+                </h1>
+                <p class="text-gray-400 text-lg leading-relaxed max-w-lg">
+                    At **POWER SOLUTIONS**, we deliver high-performance solar energy systems and custom inverter packages designed to keep your world running.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex flex-wrap gap-12">
+                <div>
+                    <div class="text-2xl font-bold text-cyan-400">3kW & 5kW</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mt-1">Solar Packages</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-green-400">100%</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mt-1">Reliability on Inverters</div>
+                </div>
+            </div>
+
+            <!-- Service Button -->
+            <div>
+                <a href="services.html" class="btn-primary px-12 py-4 rounded-xl font-bold text-sm uppercase tracking-wider inline-block">
+                    View Services
+                </a>
+            </div>
+
+            <!-- Relocated Contact Section -->
+            <div id="contact-section" class="space-y-6 pt-4">
+                <h3 class="text-white font-black text-sm uppercase tracking-[0.2em]">Contact Us</h3>
+                <div class="flex space-x-5">
+                    <a href="https://wa.me/918921522961" target="_blank" class="contact-icon" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <div onclick="openModal()" class="contact-icon" title="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <a href="tel:+918921522961" class="contact-icon" title="Call">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Updated Logo Section -->
+        <div class="flex flex-col items-center justify-center">
+            <div class="w-72 h-72 md:w-96 md:h-96 rounded-full profile-ring p-2">
+                <div class="w-full h-full rounded-full overflow-hidden bg-slate-800">
+                    <img src="https://i.postimg.cc/0NQtqBGw/Gemini-Generated-Image-h7woah7woah7woah.png" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <h2 class="text-2xl font-bold text-white tracking-tight uppercase">PowerSolutions</h2>
+                <p class="text-indigo-400 font-medium text-sm mt-1">Smart Energy Solutions</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openModal() { document.getElementById('emailModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('emailModal').style.display = 'none'; }
+        function copyEmail() {
+            const email = document.getElementById('emailText').innerText;
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email copied to clipboard!');
+            });
+        }
+        window.onclick = function(event) {
+            let modal = document.getElementById('emailModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>
